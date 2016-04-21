@@ -11,44 +11,37 @@ public class RomanNumerals {
 			if ( x == 4){
 				resultat = "" + I + V;
 			}
-			else {
+			else if ( x == 5 ){
+				resultat = "" + V;
+			}
+			else {	
 				resultat = resultat + I; 
 			}
-			
 		}
 		return resultat;
 	}
 
 	public String convertFromRoman(String roman) {
-		
 		int resultat = 0;
-		
 		String resultatAsString;
-		
 		for ( int i = 0; i < roman.length(); i++){
-			
 			if ( roman.charAt(i) == 'I') {
-				
 				resultat += 1;
-			
 			}	
-			
 			else if (roman.charAt(i) == 'V'){
-					
-					resultat = 4;
-					
+					if (roman.length() == 2 && roman.charAt(i-1) == 'I'){	
+						resultat = 4;
+					}
+					else {
+						resultat = 5;
+					}
 				}	
 			else {
-				
 				resultat = 0;
-				
 			}	
 		}
-		
 		resultatAsString = "" + resultat;
-		
 		return resultatAsString;
-		
 	}
 
 }
